@@ -35,15 +35,17 @@ public class Sample1 {
     String str = name + "は魔王を倒しました!";
     put(str);
 
+    put("レベル" + lv);
+
     if (lv >= 80) {
-      System.out.println("レベル" + lv + "なので余裕で魔王を倒せました。");
+      put("なので余裕で魔王を倒せました。");
     } else if (lv >= 50) {
-      System.out.println("レベル" + lv + "なので魔王を倒せました");
+      put("なので魔王を倒せました");
     } else {
-      System.out.println("レベル" + lv + "なので魔王に苦戦しました。");
+      put("なので魔王に苦戦しました。");
     }
 
-    System.out.println("GAME CLEAR!!");
+    put("GAME CLEAR!!");
   }
 
   // 倒した時のメッセージ
