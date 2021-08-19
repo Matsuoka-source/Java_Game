@@ -6,13 +6,27 @@ public class Sample1 {
     String name = "アーサー" + k;
 
     // レベル
-    int lv = 50;
+    int lv = 20;
 
     // 文章
     System.out.println("魔王が正解を滅ぼそうとしています。");
-    System.out.println(name + "はレベル" + lv + "の強者です。");
-    System.out.println(name + "は魔王を倒しました。");
-    System.out.println("Game CLEAR!!");
+    System.out.println(name + "はレベル" + lv + "です。");
+
+    if (lv <= 20) {
+      System.out.println(name + "はレベルが低く負けてしまいました。");
+      System.out.println("GAME OVER");
+    } else {
+      System.out.println(name + "は魔王を倒しました。");
+      if (lv >= 80) {
+        System.out.println("レベル" + lv + "なので余裕で倒せました。");
+      } else if (lv >= 50) {
+        System.out.println("レベル" + lv + "なので倒せました");
+      } else {
+        System.out.println("レベル" + lv + "なので苦戦しました。");
+      }
+
+      System.out.println("Game CLEAR!!");
+    }
   }
 }
 
