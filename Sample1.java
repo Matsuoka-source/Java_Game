@@ -33,7 +33,8 @@ public class Sample1 {
   // 文字
   static void putGameClear() {
     String str = name + "は魔王を倒しました!";
-    System.out.println(str);
+    put(str);
+
     if (lv >= 80) {
       System.out.println("レベル" + lv + "なので余裕で魔王を倒せました。");
     } else if (lv >= 50) {
@@ -43,6 +44,11 @@ public class Sample1 {
     }
 
     System.out.println("GAME CLEAR!!");
+  }
+
+  // 倒した時のメッセージ
+  static void put(String str) {
+    System.out.println(str);
   }
 }
 
