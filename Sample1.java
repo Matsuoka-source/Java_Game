@@ -1,16 +1,15 @@
 public class Sample1 {
+  // 登場人物
+  static String k = "王";
+  static String name = "アーサー" + k;
+
+  // レベル
+  static int lv = 20;
+
   public static void main(String[] args) {
 
-    // 登場人物
-    String k = "王";
-    String name = "アーサー" + k;
-
-    // レベル
-    int lv = 20;
-
     // 文章
-    System.out.println("魔王が正解を滅ぼそうとしています。");
-    System.out.println(name + "はレベル" + lv + "です。");
+    main();
 
     if (lv <= 20) {
       System.out.println(name + "はレベルが低く負けてしまいました。");
@@ -27,6 +26,12 @@ public class Sample1 {
 
       System.out.println("Game CLEAR!!");
     }
+  }
+
+  // 関数の定義
+  static void main() {
+    System.out.println("魔王が正解を滅ぼそうとしています。");
+    System.out.println(name + "はレベル" + lv + "です。");
   }
 }
 
