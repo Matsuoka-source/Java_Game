@@ -35,7 +35,7 @@ public class Sample1 {
     String str = name + "は魔王を倒しました!";
     put(str);
 
-    put("レベル" + lv);
+    System.out.print("レベル" + lv);
 
     if (lv >= 80) {
       put("なので余裕で魔王を倒せました。");
