@@ -18,6 +18,7 @@ public class Sample1 {
     }
   }
 
+  // ロジック
   // 関数の定義
   static void main() {
     System.out.println("魔王が正解を滅ぼそうとしています。");
@@ -29,8 +30,10 @@ public class Sample1 {
     System.out.println("GAME OVER");
   }
 
+  // 文字
   static void putGameClear() {
-    System.out.println(name + "は魔王を倒しました。");
+    String str = name + "は魔王を倒しました!";
+    System.out.println(str);
     if (lv >= 80) {
       System.out.println("レベル" + lv + "なので余裕で魔王を倒せました。");
     } else if (lv >= 50) {
