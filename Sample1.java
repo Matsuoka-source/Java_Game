@@ -3,3 +3,7 @@ class Sample1 {
     System.out.println("こんにちはJAVA!");
   }
 }
+
+
+
+// vscodeだとコンパイルをしなくても右上の再生スタートみたいなやつで表示できる。
