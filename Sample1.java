@@ -11,23 +11,26 @@ public class Sample1 {
     /** 序章を表示 */
     start();
 
-    System.out.println("1.すぐに魔王を倒しに行く");
-    System.out.println("2.修行してから魔王を倒しに行く");
-
-    // 文字に対応した命令(文字コード)
-    int c = System.in.read();
-
-    if (c == '2') {
-      lv = 110;
-    }
-
-    put("cの値は" + c + "です。");
+    putCommand();
 
     /** レベルが20未満の場合 */
     if (lv <= 20) {
       putGameOver(); /* ゲームオーバー画面を表示 */
     } else { /* レベルが20以上の場合 */
       putGameClear(); /* ゲームクリア画面を表示 */
+    }
+  }
+
+  public static void putCommand() throws java.io.IOException {
+    System.out.println("1.魔王を倒しに行く");
+    System.out.println("2.修行する");
+
+    // 文字に対応した命令(文字コード)
+    int c = System.in.read();
+
+    if (c == '2') {
+      lv += 5;
+      System.out.println("レベルが" + lv + "になった。");
     }
   }
 
