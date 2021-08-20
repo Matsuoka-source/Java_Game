@@ -4,12 +4,24 @@ public class Sample1 {
   static String name = "アーサー" + k;
 
   /** プレイヤーのレベル */
-  static int lv = 50;
+  static int lv = 20;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws java.io.IOException {
 
     /** 序章を表示 */
     start();
+
+    System.out.println("1.すぐに魔王を倒しに行く");
+    System.out.println("2.修行してから魔王を倒しに行く");
+
+    // 文字に対応した命令(文字コード)
+    int c = System.in.read();
+
+    if (c == '2') {
+      lv = 110;
+    }
+
+    put("cの値は" + c + "です。");
 
     /** レベルが20未満の場合 */
     if (lv <= 20) {
@@ -65,3 +77,4 @@ public class Sample1 {
 // /** */で囲む必要あり
 // 実行すると複数のファイルが作成される
 // index.htmlを開くと
+// System.inだと外からの入力をプログラム側に行くということ
