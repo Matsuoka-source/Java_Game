@@ -56,7 +56,7 @@ public class Sample1 {
    * 
    * @param Str 表示対象の文字列
    */
-  static void put(String str) {
+  public static void put(String str) {
     System.out.println(str);
   }
 }
