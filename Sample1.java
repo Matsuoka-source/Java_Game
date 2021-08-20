@@ -9,7 +9,7 @@ public class Sample1 {
   public static void main(String[] args) {
 
     // 文章
-    main();
+    start();
 
     if (lv <= 20) {
       putGameOver();
@@ -20,7 +20,7 @@ public class Sample1 {
 
   // ロジック
   // 関数の定義
-  static void main() {
+  static void start() {
     System.out.println("魔王が正解を滅ぼそうとしています。");
     System.out.println(name + "はレベル" + lv + "です。");
   }
@@ -55,3 +55,5 @@ public class Sample1 {
 }
 
 // vscodeだとコンパイルをしなくても右上の再生スタートみたいなやつで表示できる。
+// 主に関数化
+// System.out.printoutを省略できるようにput()に変更
