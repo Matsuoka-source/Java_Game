@@ -1,0 +1,1 @@
+memberSearchIndex = [{"l":"main(String[])","h":"","u":"main(java.lang.String[])"},{"l":"putGameClear()","h":"","u":""},{"l":"putGameOver()","h":"","u":""},{"l":"Sample1()","h":"","u":"%3Cinit%3E()"},{"l":"start()","h":"","u":""}]
