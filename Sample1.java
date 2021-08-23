@@ -40,7 +40,7 @@ public class Sample1 {
       putCommand();// この記述をすることで最初の文字に戻る
     } else {
       // System.out.println("正しい数字が入力されていません。c=" + c);
-      putCommand();
+      inputCommand();
     }
   }
 
@@ -106,3 +106,5 @@ public class Sample1 {
 // 1.魔王を倒しに行く
 // 2.修行する*/
 // という形に表示されてしまう。
+
+// 新しくinputCommand関数を作成すると改善
