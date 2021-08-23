@@ -39,6 +39,9 @@ public class Sample1 {
     } else if (c == '2') {
       lv += 5;
       hp -= 3;
+      if (hp < 0) {
+        hp = 0;
+      }
       System.out.println("レベルが" + lv + "になった。");
       System.out.println("HPが" + hp + "になった。");
       if (hp == 0) {
@@ -47,7 +50,7 @@ public class Sample1 {
         putCommand(); // この記述をすることで最初の文字に戻る
       }
     } else if (c == '3') { // 宿屋に泊まる
-      hp = 30;
+      hp = lv;
       System.out.println("HPが" + hp + "になった。");
       putCommand();
     }
@@ -139,3 +142,6 @@ public class Sample1 {
 // HPを追加
 // HPが0になるとGAME OVERになるように変更
 // しかしそのあとにGAME CLEARの画面表示をされてしまう
+// なのでreturnで返すように変更
+
+// HPとLvを同じ数値に変更
