@@ -17,8 +17,12 @@ public class Sample1 {
     /** コマンドを表示 */
     putCommand();
 
-    /** レベルが20未満の場合 */
-    if (lv <= 20) {
+    if (hp == 0) {
+      return;
+    }
+
+    // 魔王を倒しに行く↓
+    if (lv <= 20) {/** レベルが20未満の場合 */
       putGameOver(); /* ゲームオーバー画面を表示 */
     } else { /* レベルが20以上の場合 */
       putGameClear(); /* ゲームクリア画面を表示 */
@@ -28,6 +32,7 @@ public class Sample1 {
   public static void putCommand() throws java.io.IOException {
     System.out.println("1.魔王を倒しに行く");
     System.out.println("2.修行する");
+    System.out.println("3.宿屋に泊まる");
     int c = inputCommand();
     if (c == '1') {
       System.out.println("魔王が現れた");
@@ -41,6 +46,10 @@ public class Sample1 {
       } else {
         putCommand(); // この記述をすることで最初の文字に戻る
       }
+    } else if (c == '3') { // 宿屋に泊まる
+      hp = 30;
+      System.out.println("HPが" + hp + "になった。");
+      putCommand();
     }
   }
 
