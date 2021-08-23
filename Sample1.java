@@ -25,23 +25,23 @@ public class Sample1 {
   public static void putCommand() throws java.io.IOException {
     System.out.println("1.魔王を倒しに行く");
     System.out.println("2.修行する");
-    inputCommand();
-  }
-
-  public static void inputCommand() throws java.io.IOException {
-    // 文字に対応した命令(文字コード)
-    int c = System.in.read();
-
+    int c = inputCommand();
     if (c == '1') {
       System.out.println("魔王が現れた");
     } else if (c == '2') {
       lv += 5;
       System.out.println("レベルが" + lv + "になった。");
       putCommand();// この記述をすることで最初の文字に戻る
-    } else {
-      // System.out.println("正しい数字が入力されていません。c=" + c);
-      inputCommand();
     }
+  }
+
+  public static int inputCommand() throws java.io.IOException {
+    // 文字に対応した命令(文字コード)
+    int c = System.in.read();
+    if (c == 10 || c == 13) {
+      return (inputCommand());
+    }
+    return (c);
   }
 
   /**
@@ -107,4 +107,13 @@ public class Sample1 {
 // 2.修行する*/
 // という形に表示されてしまう。
 
-// 新しくinputCommand関数を作成すると改善
+// elseのSystem.out.println()を削除すると
+// 正しい数字が,,,は表示されなくなる。
+
+// 表示と入力でわける
+// 新しくinputCommand関数を作成し,最後にinputCommand()を追加しで改善
+
+// 8/23関数のリターン文
+// public staticの所で {voidだと関数の戻り値がない intだと関数の戻り値がある}
+
+// 戻り値があると変数に代入できる。
