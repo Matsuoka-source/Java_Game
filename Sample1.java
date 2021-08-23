@@ -25,7 +25,10 @@ public class Sample1 {
   public static void putCommand() throws java.io.IOException {
     System.out.println("1.魔王を倒しに行く");
     System.out.println("2.修行する");
+    inputCommand();
+  }
 
+  public static void inputCommand() throws java.io.IOException {
     // 文字に対応した命令(文字コード)
     int c = System.in.read();
 
@@ -36,7 +39,7 @@ public class Sample1 {
       System.out.println("レベルが" + lv + "になった。");
       putCommand();// この記述をすることで最初の文字に戻る
     } else {
-      System.out.println("正しい数字が入力されていません。c=" + c);
+      // System.out.println("正しい数字が入力されていません。c=" + c);
       putCommand();
     }
   }
@@ -96,7 +99,7 @@ public class Sample1 {
 // レベルが55になった。
 // 1.魔王を倒しに行く
 // 2.修行する
-// 正しい数字が入力されていません。c=13
+// 正しい数字が入力されていません。c=13 ←これはエンターキー
 // 1.魔王を倒しに行く
 // 2.修行する
 // 正しい数字が入力されていません。c=10
