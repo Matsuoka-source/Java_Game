@@ -6,6 +6,9 @@ public class Sample1 {
   /** プレイヤーのレベル */
   static int lv = 20;
 
+  /** プレイヤーのヒットポイント */
+  static int hp = 30;
+
   public static void main(String[] args) throws java.io.IOException {
 
     /** 序章を表示 */
@@ -30,8 +33,14 @@ public class Sample1 {
       System.out.println("魔王が現れた");
     } else if (c == '2') {
       lv += 5;
+      hp -= 3;
       System.out.println("レベルが" + lv + "になった。");
-      putCommand();// この記述をすることで最初の文字に戻る
+      System.out.println("HPが" + hp + "になった。");
+      if (hp == 0) {
+        System.out.println("GAME OVER");
+      } else {
+        putCommand(); // この記述をすることで最初の文字に戻る
+      }
     }
   }
 
@@ -49,7 +58,7 @@ public class Sample1 {
    */
   public static void start() {
     System.out.println("魔王が正解を滅ぼそうとしています。");
-    System.out.println(name + "はレベル" + lv + "です。");
+    System.out.println(name + "はLv:" + lv + "  HP:" + hp + "です。");
   }
 
   /** ゲームオーバー画面を表示します。 */
@@ -117,3 +126,7 @@ public class Sample1 {
 // public staticの所で {voidだと関数の戻り値がない intだと関数の戻り値がある}
 
 // 戻り値があると変数に代入できる。
+
+// HPを追加
+// HPが0になるとGAME OVERになるように変更
+// しかしそのあとにGAME CLEARの画面表示をされてしまう
