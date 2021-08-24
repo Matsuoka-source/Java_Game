@@ -9,6 +9,9 @@ public class Sample1 {
   /** プレイヤーのヒットポイント */
   static int hp = 30;
 
+  /** プレイヤーの所持金 */
+  static int gold = 50;
+
   public static void main(String[] args) throws java.io.IOException {
 
     /** 序章を表示 */
@@ -43,6 +46,7 @@ public class Sample1 {
         hp = 0;
       }
       System.out.println("レベルが" + lv + "になった。");
+      putStatus();
       System.out.println("HPが" + hp + "になった。");
       if (hp == 0) {
         System.out.println("GAME OVER");
@@ -50,8 +54,12 @@ public class Sample1 {
         putCommand(); // この記述をすることで最初の文字に戻る
       }
     } else if (c == '3') { // 宿屋に泊まる
-      hp = lv;
-      System.out.println("HPが" + hp + "になった。");
+      if (gold >= 10) {
+        hp = lv;
+        gold -= 10;
+        System.out.println("所持金が足りません。");
+      }
+      putStatus();
       putCommand();
     }
   }
@@ -70,7 +78,13 @@ public class Sample1 {
    */
   public static void start() {
     System.out.println("魔王が正解を滅ぼそうとしています。");
-    System.out.println(name + "はLv:" + lv + "  HP:" + hp + "です。");
+    putStatus();
+  }
+
+  public static void putStatus() {
+    System.out.println("----------------------------------");
+    System.out.println(name + "  Lv:" + lv + "  HP:" + hp + "  " + gold + "G");
+    System.out.println("----------------------------------");
   }
 
   /** ゲームオーバー画面を表示します。 */
@@ -145,3 +159,5 @@ public class Sample1 {
 // なのでreturnで返すように変更
 
 // HPとLvを同じ数値に変更
+
+// 8/24無限に宿泊できるのでお金の概念を追加
