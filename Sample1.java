@@ -40,14 +40,16 @@ public class Sample1 {
     if (c == '1') {
       System.out.println("魔王が現れた");
     } else if (c == '2') {
+      java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
+      int d = r.nextInt(8);
       lv += 5;
-      hp -= 3;
+      hp -= d;
       if (hp < 0) {
         hp = 0;
       }
+      System.out.println(name + "は" + d + "ポイントのダメージを受けた!");
       System.out.println("レベルが" + lv + "になった。");
       putStatus();
-      System.out.println("HPが" + hp + "になった。");
       if (hp == 0) {
         System.out.println("GAME OVER");
       } else {
@@ -171,3 +173,8 @@ public class Sample1 {
 // 8/25
 // int型だと-2100000000~2100000000までしか記述できない
 // そのためlong型に変更して元の数字にLを追記
+// double型だと小数点まで記述可能
+// float型だと有効桁数が少ないので基本的にはdoubleを使っていればいい
+// ただし使用するメモリが少なくなり、処理が速くなる
+
+// 乱数の処理を追加
