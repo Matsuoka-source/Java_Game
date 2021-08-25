@@ -33,36 +33,49 @@ public class Sample1 {
   }
 
   public static void putCommand() throws java.io.IOException {
-    System.out.println("1.魔王を倒しに行く");
-    System.out.println("2.修行する");
-    System.out.println("3.宿屋に泊まる");
+    put("1.魔王を倒しに行く");
+    put("2.修行する");
+    put("3.宿屋に泊まる");
     int c = inputCommand();
     if (c == '1') {
-      System.out.println("魔王が現れた");
+      put("魔王が現れた");
     } else if (c == '2') {
-      java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
-      int d = r.nextInt(8);
-      lv += 5;
-      hp -= d;
-      if (hp < 0) {
-        hp = 0;
-      }
-      System.out.println(name + "は" + d + "ポイントのダメージを受けた!");
-      System.out.println("レベルが" + lv + "になった。");
-      putStatus();
-      if (hp == 0) {
-        System.out.println("GAME OVER");
-      } else {
-        putCommand(); // この記述をすることで最初の文字に戻る
-      }
-    } else if (c == '3') { // 宿屋に泊まる
+      syugyou();
+    } else if (c == '3')
+
+    { // 宿屋に泊まる
       if (gold >= 10) {
         hp = lv;
         gold -= 10;
-        System.out.println("所持金が足りません。");
+        put("所持金が足りません。");
       }
       putStatus();
       putCommand();
+    }
+  }
+
+  // **修行する*/
+  public static void syugyou() throws java.io.IOException {
+    // HPを減らす処理
+    java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
+    int d = r.nextInt(8);
+    hp -= d;
+    if (hp < 0) {
+      hp = 0;
+    }
+    put(name + "は" + d + "ポイントのダメージを受けた!");
+
+    // レベルアップの処理
+    int e = r.nextInt(5) + 1;
+    lv += e;
+    put("レベルが" + lv + "になった。");
+
+    putStatus();
+
+    if (hp == 0) {
+      put("GAME OVER");
+    } else {
+      putCommand(); // この記述をすることで最初の文字に戻る
     }
   }
 
@@ -85,20 +98,20 @@ public class Sample1 {
    * ロジック 序章を表示します。
    */
   public static void start() {
-    System.out.println("魔王が正解を滅ぼそうとしています。");
+    put("魔王が正解を滅ぼそうとしています。");
     putStatus();
   }
 
   public static void putStatus() {
-    System.out.println("----------------------------------");
-    System.out.println(name + "  Lv:" + lv + "  HP:" + hp + "  " + gold + "G");
-    System.out.println("----------------------------------");
+    put("----------------------------------");
+    put(name + "  Lv:" + lv + "  HP:" + hp + "  " + gold + "G");
+    put("----------------------------------");
   }
 
   /** ゲームオーバー画面を表示します。 */
   public static void putGameOver() {
-    System.out.println(name + "はレベルが低く負けてしまいました。");
-    System.out.println("GAME OVER");
+    put(name + "はレベルが低く負けてしまいました。");
+    put("GAME OVER");
   }
 
   /** ゲームクリア画面を表示します。 */
@@ -178,3 +191,8 @@ public class Sample1 {
 // ただし使用するメモリが少なくなり、処理が速くなる
 
 // 乱数の処理を追加
+
+// ソースの整理
+// System.out.printlnをputに変更
+
+// 選択肢の2を関数化
