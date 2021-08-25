@@ -10,7 +10,7 @@ public class Sample1 {
   static int hp = 30;
 
   /** プレイヤーの所持金 */
-  static int gold = 50;
+  static long gold = 5000000000000L;
 
   public static void main(String[] args) throws java.io.IOException {
 
@@ -64,6 +64,12 @@ public class Sample1 {
     }
   }
 
+  /**
+   * 入力ストリームからデータの次のバイトを読み込みます。 改行コードは無視されます。
+   * 
+   * @return データの次のバイト。ストリームの終わりに達した場合は-1
+   * @exception IOException 入出力エラーが発生した場合 ↓
+   */
   public static int inputCommand() throws java.io.IOException {
     // 文字に対応した命令(文字コード)
     int c = System.in.read();
@@ -161,3 +167,7 @@ public class Sample1 {
 // HPとLvを同じ数値に変更
 
 // 8/24無限に宿泊できるのでお金の概念を追加
+
+// 8/25
+// int型だと-2100000000~2100000000までしか記述できない
+// そのためlong型に変更して元の数字にLを追記
