@@ -10,7 +10,7 @@ public class Sample1 {
   static int hp = 30;
 
   /** プレイヤーの所持金 */
-  static long gold = 5000000000000L;
+  static int gold = 10;
 
   public static void main(String[] args) throws java.io.IOException {
 
@@ -40,13 +40,12 @@ public class Sample1 {
     if (c == '1') {
       put("魔王が現れた");
     } else if (c == '2') {
-      syugyou();
-    } else if (c == '3')
-
-    { // 宿屋に泊まる
+      training();
+    } else if (c == '3') { // 宿屋に泊まる
       if (gold >= 10) {
         hp = lv;
         gold -= 10;
+      } else {
         put("所持金が足りません。");
       }
       putStatus();
@@ -55,9 +54,14 @@ public class Sample1 {
   }
 
   // **修行する*/
-  public static void syugyou() throws java.io.IOException {
-    // HPを減らす処理
+  public static void training() throws java.io.IOException {
     java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
+
+    // **敵出現*/
+    int e = r.nextInt(5) + 1;// 敵の数
+    put("敵が" + e + "匹、現れた");
+
+    // HPを減らす処理
     int d = r.nextInt(8);
     hp -= d;
     if (hp < 0) {
@@ -66,7 +70,6 @@ public class Sample1 {
     put(name + "は" + d + "ポイントのダメージを受けた!");
 
     // レベルアップの処理
-    int e = r.nextInt(5) + 1;
     lv += e;
     put("レベルが" + lv + "になった。");
 
