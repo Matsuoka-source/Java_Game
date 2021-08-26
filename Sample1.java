@@ -63,66 +63,26 @@ public class Sample1 {
     java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
 
     // **敵出現(経験値でも採用)*/
-    int e = r.nextInt(4) + 1;// 敵の数
+    int e = r.nextInt(5) + 1;// 敵の数
     put("敵が" + e + "匹、現れた");
 
     String m = "٩(ˊᗜˋ*)و";
-    String s = "";
+    String s = "  ";
 
     // オリジナルで作成 敵の数(r.nextInt()の中身)が増えるたびに
     // if文を書かなくてもいいように調整
-    // int i = 1;
-    // do {
-    // put(m);
-    // m = m + s;
-    // i++;
-    // } while (i <= e);
+    int i = 1;
+    do {
+      s = s + m;
+      i++;
+    } while (i <= e);
+    put(s);
 
     // 参考元の物 こちらの方がシンプルなのでこちらを採用
-    for (int i = 0; i < e; i++) {
-      s = s + m;
-    }
-    put(s);
-    // int i = 0;
-    // if (i < e) {
+    // for (int i = 0; i < e; i++) {
     // s = s + m;
-    // i = i + 1;
     // }
-    // if (i < e) {
-    // s = s + m;
-    // i = i + 1;
-    // }
-    // if (i < e) {
-    // s = s + m;
-    // i = i + 1;
-    // }
-    // if (i < e) {
-    // s = s + m;
-    // i = i + 1;
-    // }
-    // 敵キャラが増えるごとにif文を増やすことで表示できるようになる
     // put(s);
-
-    // switch文での敵キャラの登場
-    // String s = "٩(ˊᗜˋ*)و";
-    // switch (e) {
-    // case 1: {
-    // put(s);
-    // break;
-    // }
-    // case 2: {
-    // put(s + s);
-    // break;
-    // }
-    // case 3: {
-    // put(s + s + s);
-    // break;
-    // }
-    // case 4: {
-    // put(s + s + s + s);
-    // break;
-    // }
-    // }
 
     // HPを減らす処理
     int d = r.nextInt(8) + 1;
