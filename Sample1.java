@@ -50,7 +50,7 @@ public class Sample1 {
           hp = lv;
           gold -= 10;
         } else {
-          put("所持金が足りません。");
+          put("所持金が足りません。");//オリジナルで作成表記がないと何が起きているかわからなくなるため作成
         }
         putStatus();
         putCommand();
@@ -69,23 +69,32 @@ public class Sample1 {
     String m = "٩(ˊᗜˋ*)و";
     String s = "";
 
-    int i = 0;
-    if (i < e) {
-      s = s + m;
-      i = i + 1;
-    }
-    if (i < e) {
-      s = s + m;
-      i = i + 1;
-    }
-    if (i < e) {
-      s = s + m;
-      i = i + 1;
-    }
-    if (i < e) {
-      s = s + m;
-      i = i + 1;
-    }
+    // オリジナルで作成 敵の数(r.nextInt()の中身)が増えるたびに
+    // if文を書かなくてもいいように調整
+    int i = 1;
+    do {
+      put(m);
+      m = m + s;
+      i++;
+    } while (i <= e);
+
+    // int i = 0;
+    // if (i < e) {
+    // s = s + m;
+    // i = i + 1;
+    // }
+    // if (i < e) {
+    // s = s + m;
+    // i = i + 1;
+    // }
+    // if (i < e) {
+    // s = s + m;
+    // i = i + 1;
+    // }
+    // if (i < e) {
+    // s = s + m;
+    // i = i + 1;
+    // }
     // 敵キャラが増えるごとにif文を増やすことで表示できるようになる
     put(s);
 
