@@ -57,16 +57,24 @@ public class Sample1 {
   public static void training() throws java.io.IOException {
     java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
 
-    // **敵出現*/
-    int e = r.nextInt(5) + 1;// 敵の数
+    // **敵出現(経験値でも採用)*/
+    int e = r.nextInt(3) + 1;// 敵の数
     put("敵が" + e + "匹、現れた");
+    if (e == 1) {
+      put("●");
+    } else if (e == 2) {
+      put("● ●");
+    } else if (e == 3) {
+      put("● ● ●");
+    }
 
     // HPを減らす処理
-    int d = r.nextInt(8);
+    int d = r.nextInt(8) + 1;
     hp -= d;
     if (hp < 0) {
       hp = 0;
     }
+
     put(name + "は" + d + "ポイントのダメージを受けた!");
 
     // レベルアップの処理
@@ -199,3 +207,6 @@ public class Sample1 {
 // System.out.printlnをputに変更
 
 // 選択肢の2を関数化
+
+// 8/26 お金がなくなった場合宿屋で回復ができず、テキストを表示するように変更
+// 敵が何体出現したかを記述 その敵の数に応じてif文で●の数も変わるように変更
