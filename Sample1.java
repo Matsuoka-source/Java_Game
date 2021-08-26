@@ -65,25 +65,50 @@ public class Sample1 {
     // **敵出現(経験値でも採用)*/
     int e = r.nextInt(4) + 1;// 敵の数
     put("敵が" + e + "匹、現れた");
-    String s = "٩(ˊᗜˋ*)و";
-    switch (e) {
-      case 1: {
-        put(s);
-        break;
-      }
-      case 2: {
-        put(s + s);
-        break;
-      }
-      case 3: {
-        put(s + s + s);
-        break;
-      }
-      case 4: {
-        put(s + s + s + s);
-        break;
-      }
+
+    String m = "٩(ˊᗜˋ*)و";
+    String s = "";
+
+    int i = 0;
+    if (i < e) {
+      s = s + m;
+      i = i + 1;
     }
+    if (i < e) {
+      s = s + m;
+      i = i + 1;
+    }
+    if (i < e) {
+      s = s + m;
+      i = i + 1;
+    }
+    if (i < e) {
+      s = s + m;
+      i = i + 1;
+    }
+    // 敵キャラが増えるごとにif文を増やすことで表示できるようになる
+    put(s);
+
+    // switch文での敵キャラの登場
+    // String s = "٩(ˊᗜˋ*)و";
+    // switch (e) {
+    // case 1: {
+    // put(s);
+    // break;
+    // }
+    // case 2: {
+    // put(s + s);
+    // break;
+    // }
+    // case 3: {
+    // put(s + s + s);
+    // break;
+    // }
+    // case 4: {
+    // put(s + s + s + s);
+    // break;
+    // }
+    // }
 
     // HPを減らす処理
     int d = r.nextInt(8) + 1;
