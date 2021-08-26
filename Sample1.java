@@ -78,9 +78,11 @@ public class Sample1 {
     // i++;
     // } while (i <= e);
 
+    // 参考元の物 こちらの方がシンプルなのでこちらを採用
     for (int i = 0; i < e; i++) {
       s = s + m;
     }
+    put(s);
     // int i = 0;
     // if (i < e) {
     // s = s + m;
@@ -99,7 +101,7 @@ public class Sample1 {
     // i = i + 1;
     // }
     // 敵キャラが増えるごとにif文を増やすことで表示できるようになる
-    put(s);
+    // put(s);
 
     // switch文での敵キャラの登場
     // String s = "٩(ˊᗜˋ*)و";
