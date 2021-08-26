@@ -36,20 +36,25 @@ public class Sample1 {
     put("1.魔王を倒しに行く");
     put("2.修行する");
     put("3.宿屋に泊まる");
-    int c = inputCommand();
-    if (c == '1') {
-      put("魔王が現れた");
-    } else if (c == '2') {
-      training();
-    } else if (c == '3') { // 宿屋に泊まる
-      if (gold >= 10) {
-        hp = lv;
-        gold -= 10;
-      } else {
-        put("所持金が足りません。");
+    switch (inputCommand()) {
+      case '1': {
+        put("魔王が現れた");
+        break;
       }
-      putStatus();
-      putCommand();
+      case '2': {
+        training();
+        break;
+      }
+      case '3': { // 宿屋に泊まる
+        if (gold >= 10) {
+          hp = lv;
+          gold -= 10;
+        } else {
+          put("所持金が足りません。");
+        }
+        putStatus();
+        putCommand();
+      }
     }
   }
 
@@ -58,14 +63,26 @@ public class Sample1 {
     java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
 
     // **敵出現(経験値でも採用)*/
-    int e = r.nextInt(3) + 1;// 敵の数
+    int e = r.nextInt(4) + 1;// 敵の数
     put("敵が" + e + "匹、現れた");
-    if (e == 1) {
-      put("●");
-    } else if (e == 2) {
-      put("● ●");
-    } else if (e == 3) {
-      put("● ● ●");
+    String s = "٩(ˊᗜˋ*)و";
+    switch (e) {
+      case 1: {
+        put(s);
+        break;
+      }
+      case 2: {
+        put(s + s);
+        break;
+      }
+      case 3: {
+        put(s + s + s);
+        break;
+      }
+      case 4: {
+        put(s + s + s + s);
+        break;
+      }
     }
 
     // HPを減らす処理
