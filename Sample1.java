@@ -15,7 +15,7 @@ public class Sample1 {
   public static void main(String[] args) throws java.io.IOException {
 
     /** 序章を表示 */
-    start();
+    Console.start();
 
     /** コマンドを表示 */
     putCommand();
@@ -26,19 +26,19 @@ public class Sample1 {
 
     // 魔王を倒しに行く↓
     if (lv <= 20) {/** レベルが20未満の場合 */
-      putGameOver(); /* ゲームオーバー画面を表示 */
+      Console.putGameOver(); /* ゲームオーバー画面を表示 */
     } else { /* レベルが20以上の場合 */
-      putGameClear(); /* ゲームクリア画面を表示 */
+      Console.putGameClear(); /* ゲームクリア画面を表示 */
     }
   }
 
   public static void putCommand() throws java.io.IOException {
-    put("1.魔王を倒しに行く");
-    put("2.修行する");
-    put("3.宿屋に泊まる");
+    Console.put("1.魔王を倒しに行く");
+    Console.put("2.修行する");
+    Console.put("3.宿屋に泊まる");
     switch (inputCommand()) {
       case '1': {
-        put("魔王が現れた");
+        Console.put("魔王が現れた");
         break;
       }
       case '2': {
@@ -50,9 +50,9 @@ public class Sample1 {
           hp = lv;
           gold -= 10;
         } else {
-          put("所持金が足りません。");// オリジナルで作成表記がないと何が起きているかわからなくなるため作成
+          Console.put("所持金が足りません。");// オリジナルで作成表記がないと何が起きているかわからなくなるため作成
         }
-        putStatus();
+        Console.putStatus();
         putCommand();
       }
     }
@@ -64,25 +64,25 @@ public class Sample1 {
 
     // **敵出現(経験値でも採用)*/
     int e = r.nextInt(5) + 1;// 敵の数
-    put("敵が" + e + "匹、現れた");
+    Console.put("敵が" + e + "匹、現れた");
 
     String m = "٩(ˊᗜˋ*)و";
     String s = "  ";
 
     // オリジナルで作成 敵の数(r.nextInt()の中身)が増えるたびに
     // if文を書かなくてもいいように調整
-    int i = 1;
-    do {
-      s = s + m;
-      i++;
-    } while (i <= e);
-    put(s);
+    // int i = 1;
+    // do {
+    // s = s + m;
+    // i++;
+    // } while (i <= e);
+    // put(s);
 
     // 参考元の物 こちらの方がシンプルなのでこちらを採用
-    // for (int i = 0; i < e; i++) {
-    // s = s + m;
-    // }
-    // put(s);
+    for (int i = 0; i < e; i++) {
+      s = s + m;
+    }
+    Console.put(s);
 
     // HPを減らす処理
     int d = r.nextInt(8) + 1;
@@ -91,16 +91,16 @@ public class Sample1 {
       hp = 0;
     }
 
-    put(name + "は" + d + "ポイントのダメージを受けた!");
+    Console.put(name + "は" + d + "ポイントのダメージを受けた!");
 
     // レベルアップの処理
     lv += e;
-    put("レベルが" + lv + "になった。");
+    Console.put("レベルが" + lv + "になった。");
 
-    putStatus();
+    Console.putStatus();
 
     if (hp == 0) {
-      put("GAME OVER");
+      Console.put("GAME OVER");
     } else {
       putCommand(); // この記述をすることで最初の文字に戻る
     }
@@ -119,53 +119,6 @@ public class Sample1 {
       return (inputCommand());
     }
     return (c);
-  }
-
-  /**
-   * ロジック 序章を表示します。
-   */
-  public static void start() {
-    put("魔王が正解を滅ぼそうとしています。");
-    putStatus();
-  }
-
-  public static void putStatus() {
-    put("----------------------------------");
-    put(name + "  Lv:" + lv + "  HP:" + hp + "  " + gold + "G");
-    put("----------------------------------");
-  }
-
-  /** ゲームオーバー画面を表示します。 */
-  public static void putGameOver() {
-    put(name + "はレベルが低く負けてしまいました。");
-    put("GAME OVER");
-  }
-
-  /** ゲームクリア画面を表示します。 */
-  public static void putGameClear() {
-    String str = name + "は魔王を倒しました!";
-    put(str);
-
-    System.out.print("レベル" + lv);
-
-    if (lv >= 80) {
-      put("なので余裕で魔王を倒せました。");
-    } else if (lv >= 50) {
-      put("なので魔王を倒せました");
-    } else {
-      put("なので魔王に苦戦しました。");
-    }
-
-    put("GAME CLEAR!!");
-  }
-
-  /**
-   * 引数で指定された文字列を表示します。
-   * 
-   * @param Str 表示対象の文字列
-   */
-  public static void put(String str) {
-    System.out.println(str);
   }
 }
 
@@ -226,3 +179,8 @@ public class Sample1 {
 
 // 8/26 お金がなくなった場合宿屋で回復ができず、テキストを表示するように変更
 // 敵が何体出現したかを記述 その敵の数に応じてif文で●の数も変わるように変更
+// 敵キャラのグラフィック？を変更
+// for文で敵の数を後で変更しても変更しなくていいように修正
+// 別のファイルにstart以降の関数を移動
+// classを使うことで別のファイルの情報を使用可能
+// 使う場合には作成した関数の前にclass名をつけることで使用可能
