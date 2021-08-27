@@ -6,10 +6,11 @@ public class Sample2 {
     jf.setBounds(50, 100, 750, 400);// 最初の二つが表示したい場所 windowの幅
     jf.setVisible(true);// windowを表示する。
     jf.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);// windowを閉じるとプログラムも終了する
-    
+
     // 文字の表示
     javax.swing.JLabel jl = new javax.swing.JLabel("Hello world!!");
-    jl.setFont(new java.awt.Font(null,0,30));//文字のサイズ変更
+    jl.setFont(new java.awt.Font(null, 0, 30));// 文字のサイズ変更
+    jl.setForeground(java.awt.Color.RED);// 文字の色を変更
     jf.add(jl);
   }
 }
