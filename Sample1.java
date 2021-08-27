@@ -61,6 +61,7 @@ public class Sample1 {
   // **修行する*/
   public static void training() throws java.io.IOException {
     java.util.Random r = new java.util.Random(); // 乱数を使用するための記述
+    // newでインスタンス化 Randomはクラス
 
     // **敵出現(経験値でも採用)*/
     int e = r.nextInt(5) + 1;// 敵の数
@@ -184,3 +185,5 @@ public class Sample1 {
 // 別のファイルにstart以降の関数を移動
 // classを使うことで別のファイルの情報を使用可能
 // 使う場合には作成した関数の前にclass名をつけることで使用可能
+
+// 8/27window表示
