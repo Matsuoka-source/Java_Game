@@ -9,8 +9,9 @@ public class Sample2 {
 
     // 文字の表示
     javax.swing.JLabel jl = new javax.swing.JLabel("Hello world!!");
-    jl.setFont(new java.awt.Font(null, 0, 30));// 文字のサイズ変更
-    jl.setForeground(java.awt.Color.RED);// 文字の色を変更
+    jl.setFont(new java.awt.Font(java.awt.Font.SERIF, java.awt.Font.ITALIC, 30));// 文字のサイズ変更 name,style,size 文字の形を変更できる
+    jl.setForeground(new java.awt.Color(255, 128, 0));
+    // 文字の色を変更java.awt.Color.RED newを付けてColorの後に()内に3つ数字を入れることで自分の好きな色に変更することができる。
     jf.add(jl);
   }
 }
