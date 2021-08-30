@@ -57,3 +57,4 @@ public class Sample2 {
 
 // 8/30
 // 部品の重ね合わせ
+// First Seed Materialが閉鎖されているので別サイトを探す
