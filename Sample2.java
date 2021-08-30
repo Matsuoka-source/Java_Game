@@ -23,8 +23,8 @@ public class Sample2 {
     jf.add(jp);
 
     // ラベルを作成し、親パネルに張り付け
-    JLabel jl = new JLabel("Hello world!!");
-    Font f = new Font(Font.SERIF, Font.ITALIC, 30);
+    JLabel jl = new JLabel("魔王が世界を滅ぼそうとしています!!");
+    Font f = new Font(Font.MONOSPACED, Font.BOLD, 40);
     jl.setFont(f);// 文字のサイズ変更 name,style,size 文字の形を変更できる
     jl.setForeground(new Color(255, 128, 0));
     // 文字の色を変更java.awt.Color.RED newを付けてColorの後に()内に3つ数字を入れることで自分の好きな色に変更することができる。
@@ -37,7 +37,7 @@ public class Sample2 {
     jp.add(jpChild);
 
     // ラベルを作成し、子パネルに張り付け
-    JLabel jlChild = new JLabel("Hello");
+    JLabel jlChild = new JLabel("アーサー王　Lv99　HP999/999");
     jlChild.setFont(f);// 文字のサイズ変更 name,style,size 文字の形を変更できる
     jlChild.setForeground(Color.WHITE);
     // 文字の色を変更java.awt.Color.RED newを付けてColorの後に()内に3つ数字を入れることで自分の好きな色に変更することができる。
